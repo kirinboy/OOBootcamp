@@ -23,6 +23,7 @@
 
         public Car Pick(string ticket)
         {
+            capacity++;
             return car;
         }
     }

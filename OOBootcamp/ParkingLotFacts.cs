@@ -27,6 +27,19 @@ namespace OOBootcamp
                     parkingLot.Park(new Car());
                 });
         }
+
+        [Fact]
+        public void should_be_able_to_park_car_when_a_parking_lot_is_no_longer_full()
+        {
+            var parkingLot = new ParkingLot(1);
+            var ticket = parkingLot.Park(new Car());
+            parkingLot.Pick(ticket);
+
+            var anotherCar = new Car();
+            var anotherTicket = parkingLot.Park(anotherCar);
+
+            Assert.Same(anotherCar, parkingLot.Pick(anotherTicket));
+        }
     }
 }
 
