@@ -59,7 +59,7 @@ namespace OOBootcamp
         public void should_fail_to_pick_a_car_when_the_car_is_not_in_a_parking_lot()
         {
             var parkingLot = new ParkingLot(1);
-            var ticketOfACarNotInParkingLot = string.Empty;
+            var ticketOfACarNotInParkingLot = 0;
 
             Assert.Throws<NoCarException>(
                 () =>

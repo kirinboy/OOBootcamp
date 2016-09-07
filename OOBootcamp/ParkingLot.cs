@@ -1,13 +1,9 @@
-﻿using System;
-
-namespace OOBootcamp
+﻿namespace OOBootcamp
 {
     public class ParkingLot
     {
-        private Car theFirstCar;
-        private Car theSecendCar;
-        private Car[] parkedCars;
-        private int capacity;
+        private readonly Car[] parkedCars;
+        private readonly int capacity;
         private int remainder;
 
         public ParkingLot(int capacity)
@@ -17,7 +13,7 @@ namespace OOBootcamp
             parkedCars = new Car[capacity];
         }
 
-        public string Park(Car car)
+        public int Park(Car car)
         {
             if (remainder == 0)
             {
@@ -28,24 +24,19 @@ namespace OOBootcamp
             parkedCars[currentIndex] = car;
             remainder--;
 
-            return currentIndex.ToString();
+            return currentIndex;
         }
 
-        public Car Pick(string ticket)
+        public Car Pick(int ticket)
         {
-            int ticketNumber;
-            if (!int.TryParse(ticket, out ticketNumber))
-            {
-                throw new NoCarException();
-            }
-
-            var pickedCar = parkedCars[ticketNumber];
+            var pickedCar = parkedCars[ticket];
             if (pickedCar == null)
             {
                 throw new NoCarException();
             }
+
             remainder++;
-            parkedCars[ticketNumber] = null;
+            parkedCars[ticket] = null;
 
             return pickedCar;
         }
