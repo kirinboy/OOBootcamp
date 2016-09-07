@@ -26,7 +26,7 @@
             var pickedCar = car;
             if (pickedCar == null)
             {
-                throw new InvalidTicketException();
+                throw new NoCarException();
             }
             car = null;
             capacity++;

@@ -2,7 +2,7 @@
 
 namespace OOBootcamp
 {
-    public class InvalidTicketException : Exception
+    public class NoCarException : Exception
     {
     }
 }

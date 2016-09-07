@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
-    <Compile Include="InvalidTicketException.cs" />
+    <Compile Include="NoCarException.cs" />
     <Compile Include="ParkingLot.cs" />
     <Compile Include="ParkingLotFacts.cs" />
     <Compile Include="ParkingLotFullException.cs" />

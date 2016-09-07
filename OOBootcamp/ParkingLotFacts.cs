@@ -48,7 +48,7 @@ namespace OOBootcamp
             var ticket = parkingLot.Park(new Car());
             parkingLot.Pick(ticket);
 
-            Assert.Throws<InvalidTicketException>(
+            Assert.Throws<NoCarException>(
                 () =>
                 {
                     parkingLot.Pick(ticket);
