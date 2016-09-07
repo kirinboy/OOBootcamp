@@ -23,8 +23,14 @@
 
         public Car Pick(string ticket)
         {
+            var pickedCar = car;
+            if (pickedCar == null)
+            {
+                throw new InvalidTicketException();
+            }
+            car = null;
             capacity++;
-            return car;
+            return pickedCar;
         }
     }
 }

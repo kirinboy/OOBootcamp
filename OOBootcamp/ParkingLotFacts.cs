@@ -40,6 +40,20 @@ namespace OOBootcamp
 
             Assert.Same(anotherCar, parkingLot.Pick(anotherTicket));
         }
+
+        [Fact]
+        public void should_fail_to_pick_the_same_car_when_a_car_is_no_longer_in_a_parking_lot()
+        {
+            var parkingLot = new ParkingLot(1);
+            var ticket = parkingLot.Park(new Car());
+            parkingLot.Pick(ticket);
+
+            Assert.Throws<InvalidTicketException>(
+                () =>
+                {
+                    parkingLot.Pick(ticket);
+                });
+        }
     }
 }
 
