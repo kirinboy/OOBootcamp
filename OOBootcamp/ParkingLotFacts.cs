@@ -81,6 +81,29 @@ namespace OOBootcamp
             Assert.Same(theFirstCar, parkingLot.Pick(theFirstTicket));
             Assert.Same(theSecondCar, parkingLot.Pick(theSecondTicket));
         }
+
+        [Fact]
+        public void should_be_able_to_pick_multiple_cars_when_parked_multiple_cars_to_a_not_full_parking_lot()
+        {
+            var parkingLot = new ParkingLot(10);
+
+            var theFirstCar = new Car();
+            var theFirstTicket = parkingLot.Park(theFirstCar);
+            var theSecondCar = new Car();
+            var theSecondTicket = parkingLot.Park(theSecondCar);
+            var theThirdCar = new Car();
+            var theThirdTicket = parkingLot.Park(theThirdCar);
+            var theFourthCar = new Car();
+            var theFourthTicket = parkingLot.Park(theFourthCar);
+            var theFifthCar = new Car();
+            var theFifthTicket = parkingLot.Park(theFifthCar);
+
+            Assert.Same(theFirstCar, parkingLot.Pick(theFirstTicket));
+            Assert.Same(theSecondCar, parkingLot.Pick(theSecondTicket));
+            Assert.Same(theThirdCar, parkingLot.Pick(theThirdTicket));
+            Assert.Same(theFourthCar, parkingLot.Pick(theFourthTicket));
+            Assert.Same(theFifthCar, parkingLot.Pick(theFifthTicket));
+        }
     }
 }
 

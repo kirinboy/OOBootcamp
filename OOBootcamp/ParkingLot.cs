@@ -1,54 +1,53 @@
-﻿namespace OOBootcamp
+﻿using System;
+
+namespace OOBootcamp
 {
     public class ParkingLot
     {
         private Car theFirstCar;
         private Car theSecendCar;
+        private Car[] parkedCars;
         private int capacity;
+        private int remainder;
 
         public ParkingLot(int capacity)
         {
             this.capacity = capacity;
+            remainder = capacity;
+            parkedCars = new Car[capacity];
         }
 
         public string Park(Car car)
         {
-            if (capacity == 0)
+            if (remainder == 0)
             {
                 throw new ParkingLotFullException();
             }
 
-            if (theFirstCar == null)
-            {
-                capacity--;
-                theFirstCar = car;
-                return "1";
-            }
+            var currentIndex = capacity - remainder;
+            parkedCars[currentIndex] = car;
+            remainder--;
 
-            capacity--;
-            theSecendCar = car;
-            return "2";
+            return currentIndex.ToString();
         }
 
         public Car Pick(string ticket)
         {
-            if (ticket == "1")
+            int ticketNumber;
+            if (!int.TryParse(ticket, out ticketNumber))
             {
-                var pickedCar = theFirstCar;
-                if (pickedCar == null)
-                {
-                    throw new NoCarException();
-                }
-                theFirstCar = null;
-                capacity++;
-                return pickedCar;
+                throw new NoCarException();
             }
-            if (ticket == "2")
+
+            var pickedCar = parkedCars[ticketNumber];
+            if (pickedCar == null)
             {
-                capacity++;
-                return theSecendCar;
+                throw new NoCarException();
             }
-            throw new NoCarException();
+            remainder++;
+            parkedCars[ticketNumber] = null;
+
+            return pickedCar;
         }
     }
 }
