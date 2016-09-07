@@ -54,6 +54,19 @@ namespace OOBootcamp
                     parkingLot.Pick(ticket);
                 });
         }
+
+        [Fact]
+        public void should_fail_to_pick_a_car_when_the_car_is_not_in_a_parking_lot()
+        {
+            var parkingLot = new ParkingLot(1);
+            var ticketOfACarNotInParkingLot = string.Empty;
+
+            Assert.Throws<NoCarException>(
+                () =>
+                {
+                    parkingLot.Pick(ticketOfACarNotInParkingLot);
+                });
+        }
     }
 }
 
