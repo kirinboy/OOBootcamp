@@ -19,15 +19,12 @@ namespace OOBootcamp
         public void should_fail_to_park_car_when_a_parking_lot_is_full()
         {
             var parkingLot = new ParkingLot(1);
-            var car1 = new Car();
-            parkingLot.Park(car1);
-
-            var car2 = new Car();
+            parkingLot.Park(new Car());
 
             Assert.Throws<ParkingLotFullException>(
                 () =>
                 {
-                    parkingLot.Park(car2);
+                    parkingLot.Park(new Car());
                 });
         }
     }
