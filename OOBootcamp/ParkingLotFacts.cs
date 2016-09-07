@@ -67,6 +67,20 @@ namespace OOBootcamp
                     parkingLot.Pick(ticketOfACarNotInParkingLot);
                 });
         }
+
+        [Fact]
+        public void should_be_able_to_pick_two_cars_when_parked_two_cars_to_a_not_full_parking_lot()
+        {
+            var parkingLot = new ParkingLot(2);
+
+            var theFirstCar = new Car();
+            var theFirstTicket = parkingLot.Park(theFirstCar);
+            var theSecondCar = new Car();
+            var theSecondTicket = parkingLot.Park(theSecondCar);
+
+            Assert.Same(theFirstCar, parkingLot.Pick(theFirstTicket));
+            Assert.Same(theSecondCar, parkingLot.Pick(theSecondTicket));
+        }
     }
 }
 

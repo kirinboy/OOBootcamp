@@ -2,7 +2,8 @@
 {
     public class ParkingLot
     {
-        private Car car;
+        private Car theFirstCar;
+        private Car theSecendCar;
         private int capacity;
 
         public ParkingLot(int capacity)
@@ -16,21 +17,38 @@
             {
                 throw new ParkingLotFullException();
             }
-            this.car = car;
+
+            if (theFirstCar == null)
+            {
+                capacity--;
+                theFirstCar = car;
+                return "1";
+            }
+
             capacity--;
-            return "1";
+            theSecendCar = car;
+            return "2";
         }
 
         public Car Pick(string ticket)
         {
-            var pickedCar = car;
-            if (pickedCar == null)
+            if (ticket == "1")
             {
-                throw new NoCarException();
+                var pickedCar = theFirstCar;
+                if (pickedCar == null)
+                {
+                    throw new NoCarException();
+                }
+                theFirstCar = null;
+                capacity++;
+                return pickedCar;
             }
-            car = null;
-            capacity++;
-            return pickedCar;
+            if (ticket == "2")
+            {
+                capacity++;
+                return theSecendCar;
+            }
+            throw new NoCarException();
         }
     }
 }
