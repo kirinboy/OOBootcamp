@@ -53,6 +53,7 @@
     <Compile Include="Car.cs" />
     <Compile Include="ParkingLot.cs" />
     <Compile Include="ParkingLotFacts.cs" />
+    <Compile Include="ParkingLotFullException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
