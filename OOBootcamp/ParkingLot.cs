@@ -20,11 +20,19 @@
                 throw new ParkingLotFullException();
             }
 
-            var currentIndex = capacity - remainder;
-            parkedCars[currentIndex] = car;
+            var theFirstEmptyIndex = 0;
+            for (var index = 0; index < capacity; index++)
+            {
+                if (parkedCars[index] == null)
+                {
+                    theFirstEmptyIndex = index;
+                    break;
+                }
+            }
+            parkedCars[theFirstEmptyIndex] = car;
             remainder--;
 
-            return currentIndex;
+            return theFirstEmptyIndex;
         }
 
         public Car Pick(int ticket)
