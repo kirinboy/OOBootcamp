@@ -13,5 +13,10 @@
         {
             return parkingLot.Park(car);
         }
+
+        public Car Pick(int ticket)
+        {
+            return parkingLot.Pick(ticket);
+        }
     }
 }
