@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OOBootcamp
 {
@@ -18,6 +19,17 @@ namespace OOBootcamp
 
         public int Park(Car car)
         {
+            foreach (var parkingLot in parkingLots)
+            {
+                try
+                {
+                    return parkingLot.Park(car);
+                }
+                catch (ParkingLotFullException e)
+                {
+                    continue;
+                }
+            }
             return parkingLots[0].Park(car);
         }
 
