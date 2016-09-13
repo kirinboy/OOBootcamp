@@ -52,7 +52,9 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="NoCarException.cs" />
+    <Compile Include="ParkingBoy.cs" />
     <Compile Include="ParkingLot.cs" />
+    <Compile Include="ParkingBoyFacts.cs" />
     <Compile Include="ParkingLotFacts.cs" />
     <Compile Include="ParkingLotFullException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
