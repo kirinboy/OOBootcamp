@@ -39,6 +39,14 @@ Given a parking boy and two parking lots
 When the parking boy park the car
 Should be able to pick the same car from the first parking lot
 
+Given a parking boy and two parking lots with first parking lot full
+When the parking boy park the car
+Should be able to pick the same car from the second parking lot
+
+Given a parking boy and two parking lots with first parking lot full
+When the parking boy park the car
+Should be able to pick the same car by the parking boy
+
 Given a parking boy and two full parking lots
 When the parking boy park the car
 Should fail to park the car
