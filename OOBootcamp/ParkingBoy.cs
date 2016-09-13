@@ -1,22 +1,29 @@
-﻿namespace OOBootcamp
+﻿using System.Collections.Generic;
+
+namespace OOBootcamp
 {
     public class ParkingBoy
     {
-        private readonly ParkingLot parkingLot;
+        private readonly ParkingLot[] parkingLots;
 
         public ParkingBoy(ParkingLot parkingLot)
         {
-            this.parkingLot = parkingLot;
+            parkingLots = new[] {parkingLot};
+        }
+
+        public ParkingBoy(ParkingLot[] parkingLots)
+        {
+            this.parkingLots = parkingLots;
         }
 
         public int Park(Car car)
         {
-            return parkingLot.Park(car);
+            return parkingLots[0].Park(car);
         }
 
         public Car Pick(int ticket)
         {
-            return parkingLot.Pick(ticket);
+            return parkingLots[0].Pick(ticket);
         }
     }
 }

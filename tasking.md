@@ -35,9 +35,9 @@ Given a parking boy and a parking lot
 When the parking boy park the car
 Should be able to pick the same car by the parking boy
 
-Given a parking boy and two parking lots and one onf the parking lot is full
+Given a parking boy and two parking lots
 When the parking boy park the car
-Should be able to pick the same car by the parking boy
+Should be able to pick the same car from the first parking lot
 
 Given a parking boy and two full parking lots
 When the parking boy park the car
