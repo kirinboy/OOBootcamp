@@ -2,16 +2,23 @@
 {
     public class SuperParkingBoy
     {
-        private readonly ParkingLot[] parkingLots;
+        public static SuperParkingBoy Super(params ParkingLot[] parkingLots)
+        {
+            return new SuperParkingBoy(new VacancyRateParkingLotFinder(), parkingLots);
+        }
 
-        public SuperParkingBoy(params ParkingLot[] parkingLots)
+        private readonly ParkingLot[] parkingLots;
+        private readonly ParkingLotFinder parkingLotFinder;
+
+        private SuperParkingBoy(ParkingLotFinder parkingLotFinder, params ParkingLot[] parkingLots)
         {
             this.parkingLots = parkingLots;
+            this.parkingLotFinder = parkingLotFinder;
         }
 
         public int Park(Car car)
         {
-            var parkingLotWithHighestVacancyRate = new VacancyRateParkingLotFinder().FindParkingLot(parkingLots);
+            var parkingLotWithHighestVacancyRate = parkingLotFinder.FindParkingLot(parkingLots);
             return parkingLotWithHighestVacancyRate.Park(car);
         }
 

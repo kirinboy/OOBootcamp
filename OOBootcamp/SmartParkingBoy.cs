@@ -2,16 +2,23 @@ namespace OOBootcamp
 {
     public class SmartParkingBoy
     {
-        private readonly ParkingLot[] parkingLots;
+        public static SmartParkingBoy Smart(params ParkingLot[] parkingLots)
+        {
+            return new SmartParkingBoy(new VacancyCountParkingLotFinder(), parkingLots);
+        }
 
-        public SmartParkingBoy(params ParkingLot[] parkingLots)
+        private readonly ParkingLot[] parkingLots;
+        private readonly ParkingLotFinder parkingLotFinder;
+
+        private SmartParkingBoy(ParkingLotFinder parkingLotFinder, params ParkingLot[] parkingLots)
         {
             this.parkingLots = parkingLots;
+            this.parkingLotFinder = parkingLotFinder;
         }
 
         public int Park(Car car)
         {
-            var parkingLotWithMostVacancyCount = new VacancyCountParkingLotFinder().FindParkingLot(parkingLots);
+            var parkingLotWithMostVacancyCount = parkingLotFinder.FindParkingLot(parkingLots);
             return parkingLotWithMostVacancyCount.Park(car);
         }
 

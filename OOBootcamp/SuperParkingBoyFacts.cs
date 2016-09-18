@@ -8,7 +8,7 @@ namespace OOBootcamp
         public void should_be_able_to_pick_the_same_car_from_the_parking_lot_when_super_parking_boy_park_the_car()
         {
             var parkingLot = new ParkingLot(1);
-            var parkingBoy = new SuperParkingBoy(parkingLot);
+            var parkingBoy = SuperParkingBoy.Super(parkingLot);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
@@ -20,7 +20,7 @@ namespace OOBootcamp
         public void should_be_able_to_pick_the_same_car_by_parking_boy_when_super_parking_boy_park_the_car()
         {
             var parkingLot = new ParkingLot(1);
-            var parkingBoy = new SuperParkingBoy(parkingLot);
+            var parkingBoy = SuperParkingBoy.Super(parkingLot);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
@@ -34,7 +34,7 @@ namespace OOBootcamp
         {
             var parkingLot1 = new ParkingLot(1);
             var parkingLot2 = new ParkingLot(1);
-            var parkingBoy = new SuperParkingBoy(parkingLot1, parkingLot2);
+            var parkingBoy = SuperParkingBoy.Super(parkingLot1, parkingLot2);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
@@ -48,7 +48,7 @@ namespace OOBootcamp
             var parkingLot1 = new ParkingLot(1);
             parkingLot1.Park(new Car());
             var parkingLot2 = new ParkingLot(1);
-            var parkingBoy = new SuperParkingBoy(parkingLot1, parkingLot2);
+            var parkingBoy = SuperParkingBoy.Super(parkingLot1, parkingLot2);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
@@ -62,7 +62,7 @@ namespace OOBootcamp
             var parkingLot1 = new ParkingLot(1);
             parkingLot1.Park(new Car());
             var parkingLot2 = new ParkingLot(1);
-            var parkingBoy = new SuperParkingBoy(parkingLot1, parkingLot2);
+            var parkingBoy = SuperParkingBoy.Super(parkingLot1, parkingLot2);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
@@ -78,7 +78,7 @@ namespace OOBootcamp
             parkingLot1.Park(new Car());
             var parkingLot2 = new ParkingLot(1);
             parkingLot2.Park(new Car());
-            var parkingBoy = new SuperParkingBoy(parkingLot1, parkingLot2);
+            var parkingBoy = SuperParkingBoy.Super(parkingLot1, parkingLot2);
 
             Assert.Throws<AllParkingLotsFullException>(() => parkingBoy.Park(new Car()));
         }
@@ -88,7 +88,7 @@ namespace OOBootcamp
         {
             var parkingLot1 = new ParkingLot(1);
             var parkingLot2 = new ParkingLot(1);
-            var parkingBoy = new SuperParkingBoy(parkingLot1, parkingLot2);
+            var parkingBoy = SuperParkingBoy.Super(parkingLot1, parkingLot2);
 
             Assert.Throws<NoCarException>(() => parkingBoy.Pick(0));
         }
@@ -99,7 +99,7 @@ namespace OOBootcamp
             var parkingLotWithLowVacancyRate = new ParkingLot(4);
             parkingLotWithLowVacancyRate.Park(new Car());
             var parkingLotWithHighVacancyRate = new ParkingLot(2);
-            var parkingBoy = new SuperParkingBoy(parkingLotWithLowVacancyRate, parkingLotWithHighVacancyRate);
+            var parkingBoy = SuperParkingBoy.Super(parkingLotWithLowVacancyRate, parkingLotWithHighVacancyRate);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
@@ -113,7 +113,7 @@ namespace OOBootcamp
             var parkingLotWithLowVacancyRate = new ParkingLot(4);
             parkingLotWithLowVacancyRate.Park(new Car());
             var parkingLotWithHighVacancyRate = new ParkingLot(2);
-            var parkingBoy = new SuperParkingBoy(parkingLotWithLowVacancyRate, parkingLotWithHighVacancyRate);
+            var parkingBoy = SuperParkingBoy.Super(parkingLotWithLowVacancyRate, parkingLotWithHighVacancyRate);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
