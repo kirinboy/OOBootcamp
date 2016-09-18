@@ -2,13 +2,16 @@ using System.Linq;
 
 namespace OOBootcamp
 {
-    public class SmartParkingBoy : ParkingBoy
+    public class SmartParkingBoy
     {
-        public SmartParkingBoy(params ParkingLot[] parkingLots) : base(parkingLots)
+        private readonly ParkingLot[] parkingLots;
+
+        public SmartParkingBoy(params ParkingLot[] parkingLots)
         {
+            this.parkingLots = parkingLots;
         }
 
-        public override int Park(Car car)
+        public int Park(Car car)
         {
             var parkingLotWithMostVacancyCount = parkingLots.OrderByDescending(lot => lot.VacancyCount).First();
             if (parkingLotWithMostVacancyCount.VacancyCount == 0)
@@ -16,6 +19,22 @@ namespace OOBootcamp
                 throw new AllParkingLotsFullException();
             }
             return parkingLotWithMostVacancyCount.Park(car);
+        }
+
+        public Car Pick(int ticket)
+        {
+            foreach (var parkingLot in parkingLots)
+            {
+                try
+                {
+                    return parkingLot.Pick(ticket);
+                }
+                catch (NoCarException e)
+                {
+                    continue;
+                }
+            }
+            return parkingLots[0].Pick(ticket);
         }
     }
 }
