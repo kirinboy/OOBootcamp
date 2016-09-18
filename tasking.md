@@ -85,3 +85,17 @@ Given a smart parking boy and two parking lot(A with 2 empty lot and B with 1 em
 When the smart parking boy park the car
 Should be able to pick the car from A
 
+#Super parking boy
+
+Given a super parking boy and parking lots
+When the super parking boy park the car
+Should act as a parking boy for super parking boy
+
+Given a super parking boy and two parking lot(A with low vacancy rate and B with high vacancy rate)
+When the super parking boy park the car
+Should be able to pick the car from B
+
+Given a super parking boy and two parking lot(A with high vacancy rate and B with low vacancy reate)
+When the super parking boy park the car
+Should be able to pick the car from A
+
