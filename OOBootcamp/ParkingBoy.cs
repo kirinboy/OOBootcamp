@@ -29,8 +29,7 @@
 
         public int Park(Car car)
         {
-            var theFirstAvailableParkingLot = parkingLotFinder.FindParkingLot(parkingLots);
-            return theFirstAvailableParkingLot.Park(car);
+            return parkingLotFinder.FindParkingLot(parkingLots).Park(car);
         }
 
         public Car Pick(int ticket)
