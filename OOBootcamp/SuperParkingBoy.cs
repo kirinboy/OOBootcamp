@@ -13,12 +13,18 @@ namespace OOBootcamp
 
         public int Park(Car car)
         {
+            var parkingLotWithHighestVacancyRate = FindParkingLot();
+            return parkingLotWithHighestVacancyRate.Park(car);
+        }
+
+        private ParkingLot FindParkingLot()
+        {
             var parkingLotWithHighestVacancyRate = parkingLots.OrderByDescending(lot => lot.VacancyRate).FirstOrDefault(lot => lot.VacancyRate != 0);
             if (parkingLotWithHighestVacancyRate == null)
             {
                 throw new AllParkingLotsFullException();
             }
-            return parkingLotWithHighestVacancyRate.Park(car);
+            return parkingLotWithHighestVacancyRate;
         }
 
         public Car Pick(int ticket)

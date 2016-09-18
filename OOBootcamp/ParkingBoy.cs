@@ -11,14 +11,20 @@ namespace OOBootcamp
             this.parkingLots = parkingLots;
         }
 
-        public virtual int Park(Car car)
+        public int Park(Car car)
+        {
+            var theFirstAvailableParkingLot = FindParkingLot();
+            return theFirstAvailableParkingLot.Park(car);
+        }
+
+        private ParkingLot FindParkingLot()
         {
             var theFirstAvailableParkingLot = parkingLots.FirstOrDefault(lot => lot.VacancyCount != 0);
             if (theFirstAvailableParkingLot == null)
             {
                 throw new AllParkingLotsFullException();
             }
-            return theFirstAvailableParkingLot.Park(car);
+            return theFirstAvailableParkingLot;
         }
 
         public Car Pick(int ticket)
