@@ -34,7 +34,7 @@ namespace OOBootcamp
         {
             var parkingLot1 = new ParkingLot(1);
             var parkingLot2 = new ParkingLot(1);
-            var parkingBoy = new ParkingBoy(new[] {parkingLot1, parkingLot2});
+            var parkingBoy = new ParkingBoy(parkingLot1, parkingLot2);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
@@ -48,7 +48,7 @@ namespace OOBootcamp
             var parkingLot1 = new ParkingLot(1);
             parkingLot1.Park(new Car());
             var parkingLot2 = new ParkingLot(1);
-            var parkingBoy = new ParkingBoy(new[] {parkingLot1, parkingLot2});
+            var parkingBoy = new ParkingBoy(parkingLot1, parkingLot2);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
@@ -62,7 +62,7 @@ namespace OOBootcamp
             var parkingLot1 = new ParkingLot(1);
             parkingLot1.Park(new Car());
             var parkingLot2 = new ParkingLot(1);
-            var parkingBoy = new ParkingBoy(new[] {parkingLot1, parkingLot2});
+            var parkingBoy = new ParkingBoy(parkingLot1, parkingLot2);
             var car = new Car();
 
             var ticket = parkingBoy.Park(car);
@@ -78,7 +78,7 @@ namespace OOBootcamp
             parkingLot1.Park(new Car());
             var parkingLot2 = new ParkingLot(1);
             parkingLot2.Park(new Car());
-            var parkingBoy = new ParkingBoy(new[] {parkingLot1, parkingLot2});
+            var parkingBoy = new ParkingBoy(parkingLot1, parkingLot2);
 
             Assert.Throws<AllParkingLotsFullException>(() => parkingBoy.Park(new Car()));
         }

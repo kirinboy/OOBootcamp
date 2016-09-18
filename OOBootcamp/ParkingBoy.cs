@@ -4,12 +4,7 @@
     {
         private readonly ParkingLot[] parkingLots;
 
-        public ParkingBoy(ParkingLot parkingLot)
-        {
-            parkingLots = new[] {parkingLot};
-        }
-
-        public ParkingBoy(ParkingLot[] parkingLots)
+        public ParkingBoy(params ParkingLot[] parkingLots)
         {
             this.parkingLots = parkingLots;
         }
