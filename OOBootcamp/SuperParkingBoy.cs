@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace OOBootcamp
+﻿namespace OOBootcamp
 {
     public class SuperParkingBoy
     {
@@ -13,18 +11,8 @@ namespace OOBootcamp
 
         public int Park(Car car)
         {
-            var parkingLotWithHighestVacancyRate = FindParkingLot();
+            var parkingLotWithHighestVacancyRate = new VacancyRateParkingLotFinder().FindParkingLot(parkingLots);
             return parkingLotWithHighestVacancyRate.Park(car);
-        }
-
-        private ParkingLot FindParkingLot()
-        {
-            var parkingLotWithHighestVacancyRate = parkingLots.OrderByDescending(lot => lot.VacancyRate).FirstOrDefault(lot => lot.VacancyRate != 0);
-            if (parkingLotWithHighestVacancyRate == null)
-            {
-                throw new AllParkingLotsFullException();
-            }
-            return parkingLotWithHighestVacancyRate;
         }
 
         public Car Pick(int ticket)

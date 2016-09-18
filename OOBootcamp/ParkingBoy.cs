@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace OOBootcamp
+﻿namespace OOBootcamp
 {
     public class ParkingBoy
     {
@@ -13,18 +11,8 @@ namespace OOBootcamp
 
         public int Park(Car car)
         {
-            var theFirstAvailableParkingLot = FindParkingLot();
+            var theFirstAvailableParkingLot = new DefaultParkingLotFinder().FindParkingLot(parkingLots);
             return theFirstAvailableParkingLot.Park(car);
-        }
-
-        private ParkingLot FindParkingLot()
-        {
-            var theFirstAvailableParkingLot = parkingLots.FirstOrDefault(lot => lot.VacancyCount != 0);
-            if (theFirstAvailableParkingLot == null)
-            {
-                throw new AllParkingLotsFullException();
-            }
-            return theFirstAvailableParkingLot;
         }
 
         public Car Pick(int ticket)

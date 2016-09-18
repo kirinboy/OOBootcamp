@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace OOBootcamp
 {
     public class SmartParkingBoy
@@ -13,18 +11,8 @@ namespace OOBootcamp
 
         public int Park(Car car)
         {
-            var parkingLotWithMostVacancyCount = FindParkingLot();
+            var parkingLotWithMostVacancyCount = new VacancyCountParkingLotFinder().FindParkingLot(parkingLots);
             return parkingLotWithMostVacancyCount.Park(car);
-        }
-
-        private ParkingLot FindParkingLot()
-        {
-            var parkingLotWithMostVacancyCount = parkingLots.OrderByDescending(lot => lot.VacancyCount).FirstOrDefault(lot => lot.VacancyCount != 0);
-            if (parkingLotWithMostVacancyCount == null)
-            {
-                throw new AllParkingLotsFullException();
-            }
-            return parkingLotWithMostVacancyCount;
         }
 
         public Car Pick(int ticket)
