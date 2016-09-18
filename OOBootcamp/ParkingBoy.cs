@@ -1,8 +1,10 @@
-﻿namespace OOBootcamp
+﻿using System.Linq;
+
+namespace OOBootcamp
 {
     public class ParkingBoy
     {
-        protected readonly ParkingLot[] parkingLots;
+        private readonly ParkingLot[] parkingLots;
 
         public ParkingBoy(params ParkingLot[] parkingLots)
         {
@@ -11,18 +13,12 @@
 
         public virtual int Park(Car car)
         {
-            foreach (var parkingLot in parkingLots)
+            var theFirstAvailableParkingLot = parkingLots.FirstOrDefault(lot => lot.VacancyCount != 0);
+            if (theFirstAvailableParkingLot == null)
             {
-                try
-                {
-                    return parkingLot.Park(car);
-                }
-                catch (ParkingLotFullException e)
-                {
-                    continue;
-                }
+                throw new AllParkingLotsFullException();
             }
-            throw new AllParkingLotsFullException();
+            return theFirstAvailableParkingLot.Park(car);
         }
 
         public Car Pick(int ticket)
