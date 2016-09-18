@@ -108,5 +108,18 @@ namespace OOBootcamp
 
             Assert.Same(car, parkingLotWithMoreVacancyCount.Pick(ticket));
         }
+
+        [Fact]
+        public void should_be_able_to_pick_the_same_car_by_smart_parking_boy()
+        {
+            var parkingLotWithLessVacancyCount = new ParkingLot(1);
+            var parkingLotWithMoreVacancyCount = new ParkingLot(2);
+            var smartParkingBoy = new SmartParkingBoy(parkingLotWithLessVacancyCount, parkingLotWithMoreVacancyCount);
+            var car = new Car();
+
+            var ticket = smartParkingBoy.Park(car);
+
+            Assert.Same(car, smartParkingBoy.Pick(ticket));
+        }
     }
 }
