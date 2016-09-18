@@ -13,8 +13,8 @@ namespace OOBootcamp
 
         public int Park(Car car)
         {
-            var parkingLotWithHighestVacancyRate = parkingLots.OrderByDescending(lot => lot.VacancyRate).FirstOrDefault();
-            if (parkingLotWithHighestVacancyRate != null && parkingLotWithHighestVacancyRate.VacancyRate == 0)
+            var parkingLotWithHighestVacancyRate = parkingLots.OrderByDescending(lot => lot.VacancyRate).FirstOrDefault(lot => lot.VacancyRate != 0);
+            if (parkingLotWithHighestVacancyRate == null)
             {
                 throw new AllParkingLotsFullException();
             }
