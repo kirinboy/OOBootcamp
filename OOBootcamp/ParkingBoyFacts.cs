@@ -56,5 +56,20 @@ namespace OOBootcamp
 
             Assert.Same(car, parkingLot2.Pick(ticket));
         }
+
+        [Fact]
+        public void should_be_able_to_pick_the_same_car_by_parking_boy_when_parking_boy_has_two_parking_lot_with_first_one_full_and_park_the_car()
+        {
+            var parkingLot1 = new ParkingLot(1);
+            parkingLot1.Park(new Car());
+            var parkingLot2 = new ParkingLot(1);
+            var parkingBoy = new ParkingBoy(new[] {parkingLot1, parkingLot2});
+            var car = new Car();
+
+            var ticket = parkingBoy.Park(car);
+            var parkedCar = parkingBoy.Pick(ticket);
+
+            Assert.Same(car, parkedCar);
+        }
     }
 }

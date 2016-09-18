@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OOBootcamp
+﻿namespace OOBootcamp
 {
     public class ParkingBoy
     {
@@ -35,6 +32,17 @@ namespace OOBootcamp
 
         public Car Pick(int ticket)
         {
+            foreach (var parkingLot in parkingLots)
+            {
+                try
+                {
+                    return parkingLot.Pick(ticket);
+                }
+                catch (NoCarException e)
+                {
+                    continue;
+                }
+            }
             return parkingLots[0].Pick(ticket);
         }
     }

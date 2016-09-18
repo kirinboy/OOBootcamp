@@ -24,7 +24,7 @@
             parkedCars[theFirstEmptyIndex] = car;
             remainder--;
 
-            return theFirstEmptyIndex;
+            return car.GetHashCode();
         }
 
         private int GetTheFirstEmptyIndex()
@@ -41,14 +41,23 @@
 
         public Car Pick(int ticket)
         {
-            var pickedCar = parkedCars[ticket];
+            Car pickedCar = null;
+            int pickedIndex = 0;
+            for (var index = 0; index < capacity; index++)
+            {
+                if (parkedCars[index] != null && parkedCars[index].GetHashCode() == ticket)
+                {
+                    pickedCar = parkedCars[index];
+                    pickedIndex = index;
+                }
+            }
             if (pickedCar == null)
             {
                 throw new NoCarException();
             }
 
             remainder++;
-            parkedCars[ticket] = null;
+            parkedCars[pickedIndex] = null;
 
             return pickedCar;
         }
