@@ -34,7 +34,7 @@ namespace OOBootcamp
                     continue;
                 }
             }
-            return parkingLots[0].Pick(ticket);
+            throw new NoCarException();
         }
     }
 }

@@ -84,6 +84,16 @@ namespace OOBootcamp
         }
 
         [Fact]
+        public void should_fail_to_pick_car_when_the_car_is_not_in_all_the_parking_lots()
+        {
+            var parkingLot1 = new ParkingLot(1);
+            var parkingLot2 = new ParkingLot(1);
+            var parkingBoy = new SmartParkingBoy(parkingLot1, parkingLot2);
+
+            Assert.Throws<NoCarException>(() => parkingBoy.Pick(0));
+        }
+
+        [Fact]
         public void should_be_able_to_pick_the_same_car_from_the_parking_lot_with_maximum_vacancy_count()
         {
             var parkingLotWithLessVacancyCount = new ParkingLot(1);

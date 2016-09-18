@@ -82,5 +82,15 @@ namespace OOBootcamp
 
             Assert.Throws<AllParkingLotsFullException>(() => parkingBoy.Park(new Car()));
         }
+
+        [Fact]
+        public void should_fail_to_pick_car_when_the_car_is_not_in_all_the_parking_lots()
+        {
+            var parkingLot1 = new ParkingLot(1);
+            var parkingLot2 = new ParkingLot(1);
+            var parkingBoy = new ParkingBoy(parkingLot1, parkingLot2);
+
+            Assert.Throws<NoCarException>(() => parkingBoy.Pick(0));
+        }
     }
 }
