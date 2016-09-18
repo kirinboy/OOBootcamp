@@ -13,6 +13,11 @@
             parkedCars = new Car[capacity];
         }
 
+        public double VacancyRate
+        {
+            get { return remainder / capacity; }
+        }
+
         public int VacancyCount
         {
             get { return remainder; }

@@ -54,6 +54,8 @@
     <Compile Include="Car.cs" />
     <Compile Include="NoCarException.cs" />
     <Compile Include="ParkingBoy.cs" />
+    <Compile Include="SuperParkingBoy.cs" />
+    <Compile Include="SuperParkingBoyFacts.cs" />
     <Compile Include="ParkingLot.cs" />
     <Compile Include="ParkingBoyFacts.cs" />
     <Compile Include="ParkingLotFacts.cs" />
