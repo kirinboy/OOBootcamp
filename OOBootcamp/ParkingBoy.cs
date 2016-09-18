@@ -7,7 +7,18 @@
             return new ParkingBoy(new DefaultParkingLotFinder(), parkingLots);
         }
 
+        public static ParkingBoy Smart(params ParkingLot[] parkingLots)
+        {
+            return new ParkingBoy(new VacancyCountParkingLotFinder(), parkingLots);
+        }
+
+        public static ParkingBoy Super(params ParkingLot[] parkingLots)
+        {
+            return new ParkingBoy(new VacancyRateParkingLotFinder(), parkingLots);
+        }
+
         private readonly ParkingLot[] parkingLots;
+
         private readonly ParkingLotFinder parkingLotFinder;
 
         public ParkingBoy(ParkingLotFinder parkingLotFinder, params ParkingLot[] parkingLots)
