@@ -57,21 +57,6 @@ namespace OOBootcamp
         }
 
         [Fact]
-        public void should_be_able_to_pick_the_same_car_by_parking_boy_when_super_parking_boy_has_two_parking_lot_with_first_one_full_and_park_the_car()
-        {
-            var parkingLot1 = new ParkingLot(1);
-            parkingLot1.Park(new Car());
-            var parkingLot2 = new ParkingLot(1);
-            var parkingBoy = ParkingBoy.Super(parkingLot1, parkingLot2);
-            var car = new Car();
-
-            var ticket = parkingBoy.Park(car);
-            var parkedCar = parkingBoy.Pick(ticket);
-
-            Assert.Same(car, parkedCar);
-        }
-
-        [Fact]
         public void should_fail_to_park_car_when_all_parking_lots_are_full()
         {
             var parkingLot1 = new ParkingLot(1);
@@ -81,16 +66,6 @@ namespace OOBootcamp
             var parkingBoy = ParkingBoy.Super(parkingLot1, parkingLot2);
 
             Assert.Throws<AllParkingLotsFullException>(() => parkingBoy.Park(new Car()));
-        }
-
-        [Fact]
-        public void should_fail_to_pick_car_when_the_car_is_not_in_all_the_parking_lots()
-        {
-            var parkingLot1 = new ParkingLot(1);
-            var parkingLot2 = new ParkingLot(1);
-            var parkingBoy = ParkingBoy.Super(parkingLot1, parkingLot2);
-
-            Assert.Throws<NoCarException>(() => parkingBoy.Pick(0));
         }
 
         [Fact]
