@@ -10,7 +10,7 @@
         private readonly ParkingLot[] parkingLots;
         private readonly ParkingLotFinder parkingLotFinder;
 
-        private ParkingBoy(ParkingLotFinder parkingLotFinder, params ParkingLot[] parkingLots)
+        public ParkingBoy(ParkingLotFinder parkingLotFinder, params ParkingLot[] parkingLots)
         {
             this.parkingLots = parkingLots;
             this.parkingLotFinder = parkingLotFinder;

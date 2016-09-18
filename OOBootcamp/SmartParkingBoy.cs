@@ -2,9 +2,9 @@ namespace OOBootcamp
 {
     public class SmartParkingBoy
     {
-        public static SmartParkingBoy Smart(params ParkingLot[] parkingLots)
+        public static ParkingBoy Smart(params ParkingLot[] parkingLots)
         {
-            return new SmartParkingBoy(new VacancyCountParkingLotFinder(), parkingLots);
+            return new ParkingBoy(new VacancyCountParkingLotFinder(), parkingLots);
         }
 
         private readonly ParkingLot[] parkingLots;

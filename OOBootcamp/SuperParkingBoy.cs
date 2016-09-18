@@ -2,9 +2,9 @@
 {
     public class SuperParkingBoy
     {
-        public static SuperParkingBoy Super(params ParkingLot[] parkingLots)
+        public static ParkingBoy Super(params ParkingLot[] parkingLots)
         {
-            return new SuperParkingBoy(new VacancyRateParkingLotFinder(), parkingLots);
+            return new ParkingBoy(new VacancyRateParkingLotFinder(), parkingLots);
         }
 
         private readonly ParkingLot[] parkingLots;
