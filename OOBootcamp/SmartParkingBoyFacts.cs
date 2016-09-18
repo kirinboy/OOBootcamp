@@ -82,5 +82,31 @@ namespace OOBootcamp
 
             Assert.Throws<AllParkingLotsFullException>(() => parkingBoy.Park(new Car()));
         }
+
+        [Fact]
+        public void should_be_able_to_pick_the_same_car_from_the_parking_lot_with_maximum_vacancy_count()
+        {
+            var parkingLotWithLessVacancyCount = new ParkingLot(1);
+            var parkingLotWithMoreVacancyCount = new ParkingLot(2);
+            var smartParkingBoy = new SmartParkingBoy(parkingLotWithLessVacancyCount, parkingLotWithMoreVacancyCount);
+            var car = new Car();
+
+            var ticket = smartParkingBoy.Park(car);
+
+            Assert.Same(car, parkingLotWithMoreVacancyCount.Pick(ticket));
+        }
+
+        [Fact]
+        public void should_be_able_to_pick_the_same_car_from_the_parking_lot_with_maximum_vacancy_count_and_no_relationship_with_the_parking_lot_order()
+        {
+            var parkingLotWithLessVacancyCount = new ParkingLot(1);
+            var parkingLotWithMoreVacancyCount = new ParkingLot(2);
+            var smartParkingBoy = new SmartParkingBoy(parkingLotWithMoreVacancyCount, parkingLotWithLessVacancyCount);
+            var car = new Car();
+
+            var ticket = smartParkingBoy.Park(car);
+
+            Assert.Same(car, parkingLotWithMoreVacancyCount.Pick(ticket));
+        }
     }
 }

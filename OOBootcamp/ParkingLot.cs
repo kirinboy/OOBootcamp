@@ -13,6 +13,11 @@
             parkedCars = new Car[capacity];
         }
 
+        public int VacancyCount
+        {
+            get { return remainder; }
+        }
+
         public int Park(Car car)
         {
             if (remainder == 0)

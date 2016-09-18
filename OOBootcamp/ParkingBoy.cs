@@ -2,14 +2,14 @@
 {
     public class ParkingBoy
     {
-        private readonly ParkingLot[] parkingLots;
+        protected readonly ParkingLot[] parkingLots;
 
         public ParkingBoy(params ParkingLot[] parkingLots)
         {
             this.parkingLots = parkingLots;
         }
 
-        public int Park(Car car)
+        public virtual int Park(Car car)
         {
             foreach (var parkingLot in parkingLots)
             {
