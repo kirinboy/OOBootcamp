@@ -2,16 +2,11 @@
 
 namespace OOBootcamp
 {
-    public class VacancyRateParkingLotFinder
+    public class VacancyRateParkingLotFinder : ParkingLotFinder
     {
-        public ParkingLot FindParkingLot(ParkingLot[] lots)
+        protected override ParkingLot FindParkingLotCore(ParkingLot[] lots)
         {
-            var parkingLotWithHighestVacancyRate = lots.OrderByDescending(lot => lot.VacancyRate).FirstOrDefault(lot => lot.VacancyRate != 0);
-            if (parkingLotWithHighestVacancyRate == null)
-            {
-                throw new AllParkingLotsFullException();
-            }
-            return parkingLotWithHighestVacancyRate;
+            return lots.OrderByDescending(lot => lot.VacancyRate).FirstOrDefault(lot => lot.VacancyRate != 0);
         }
     }
 }

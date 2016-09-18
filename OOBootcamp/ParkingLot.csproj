@@ -55,6 +55,7 @@
     <Compile Include="DefaultParkingLotFinder.cs" />
     <Compile Include="NoCarException.cs" />
     <Compile Include="ParkingBoy.cs" />
+    <Compile Include="ParkingLotFinder.cs" />
     <Compile Include="SuperParkingBoy.cs" />
     <Compile Include="SuperParkingBoyFacts.cs" />
     <Compile Include="ParkingLot.cs" />

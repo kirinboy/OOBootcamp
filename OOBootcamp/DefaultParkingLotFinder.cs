@@ -2,16 +2,11 @@
 
 namespace OOBootcamp
 {
-    public class DefaultParkingLotFinder
+    public class DefaultParkingLotFinder : ParkingLotFinder
     {
-        public ParkingLot FindParkingLot(ParkingLot[] lots)
+        protected override ParkingLot FindParkingLotCore(ParkingLot[] lots)
         {
-            var theFirstAvailableParkingLot = lots.FirstOrDefault(lot => lot.VacancyCount != 0);
-            if (theFirstAvailableParkingLot == null)
-            {
-                throw new AllParkingLotsFullException();
-            }
-            return theFirstAvailableParkingLot;
+            return lots.FirstOrDefault(lot => lot.VacancyCount != 0);
         }
     }
 }

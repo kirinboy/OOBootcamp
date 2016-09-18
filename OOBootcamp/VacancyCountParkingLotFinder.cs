@@ -2,16 +2,11 @@ using System.Linq;
 
 namespace OOBootcamp
 {
-    public class VacancyCountParkingLotFinder
+    public class VacancyCountParkingLotFinder : ParkingLotFinder
     {
-        public ParkingLot FindParkingLot(ParkingLot[] lots)
+        protected override ParkingLot FindParkingLotCore(ParkingLot[] lots)
         {
-            var parkingLotWithMostVacancyCount = lots.OrderByDescending(lot => lot.VacancyCount).FirstOrDefault(lot => lot.VacancyCount != 0);
-            if (parkingLotWithMostVacancyCount == null)
-            {
-                throw new AllParkingLotsFullException();
-            }
-            return parkingLotWithMostVacancyCount;
+            return lots.OrderByDescending(lot => lot.VacancyCount).FirstOrDefault(lot => lot.VacancyCount != 0);
         }
     }
 }
