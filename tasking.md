@@ -28,7 +28,7 @@ Then will be able to pick the two cars
 #Parking Boy
 
 Given a parking boy and a parking lot
-When a parking boy park the car to a parking lot
+When the parking boy park the car to a parking lot
 Should be able to pick the same car from the parking lot
 
 Given a parking boy and a parking lot
@@ -50,3 +50,38 @@ Should be able to pick the same car by the parking boy
 Given a parking boy and two full parking lots
 When the parking boy park the car
 Should fail to park the car
+
+#Smart parking boy
+
+Given a smart parking boy and a parking lot
+When the smart parking boy park the car to a parking lot
+Should be able to pick the same car from the parking lot
+
+Given a smart parking boy and a parking lot
+When the smart parking boy park the car
+Should be able to pick the same car by the parking boy
+
+Given a smart parking boy and two parking lots
+When the smart parking boy park the car
+Should be able to pick the same car from the first parking lot
+
+Given a parking boy and two parking lots with first parking lot full
+When the smart parking boy park the car
+Should be able to pick the same car from the second parking lot
+
+Given a parking boy and two parking lots with first parking lot full
+When the smart parking boy park the car
+Should be able to pick the same car by the parking boy
+
+Given a parking boy and two full parking lots
+When the smart parking boy park the car
+Should fail to park the car
+
+Given a smart parking boy and two parking lot(A with 1 empty lot and B with 2 empty lots)
+When the smart parking boy park the car
+Should be able to pick the car from B
+
+Given a smart parking boy and two parking lot(A with 2 empty lot and B with 1 empty lots)
+When the smart parking boy park the car
+Should be able to pick the car from A
+
