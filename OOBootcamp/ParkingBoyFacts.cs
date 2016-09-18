@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Xunit;
+﻿using Xunit;
 
 namespace OOBootcamp
 {
@@ -70,6 +69,18 @@ namespace OOBootcamp
             var parkedCar = parkingBoy.Pick(ticket);
 
             Assert.Same(car, parkedCar);
+        }
+
+        [Fact]
+        public void should_fail_to_park_car_when_all_parking_lots_are_full()
+        {
+            var parkingLot1 = new ParkingLot(1);
+            parkingLot1.Park(new Car());
+            var parkingLot2 = new ParkingLot(1);
+            parkingLot2.Park(new Car());
+            var parkingBoy = new ParkingBoy(new[] {parkingLot1, parkingLot2});
+
+            Assert.Throws<AllParkingLotsFullException>(() => parkingBoy.Park(new Car()));
         }
     }
 }

@@ -27,7 +27,7 @@
                     continue;
                 }
             }
-            return parkingLots[0].Park(car);
+            throw new AllParkingLotsFullException();
         }
 
         public Car Pick(int ticket)
