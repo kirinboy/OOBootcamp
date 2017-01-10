@@ -99,3 +99,21 @@ Given a super parking boy and two parking lot(A with high vacancy rate and B wit
 When the super parking boy park the car
 Should be able to pick the car from A
 
+#Parking mangager
+
+Given a parking manager and a parking lot
+When the parking manager park the car
+Should be able to pick the car from the parking lot
+
+Given a parking manager and a parking boy
+When the parking manager park the car
+Should be able to pick the car by the parking boy
+
+Given a parking manager and a parking lot
+When the parking manager park the car
+Should be able to pick the car by the parking manager
+
+Given a parking manager and a parking boy
+When the parking manager park the car
+Should be able to pick the car by the parking manager
+
