@@ -2,7 +2,7 @@
 
 namespace OOBootcamp
 {
-    public class DefaultParkingLotFinder : ParkingLotFinder
+    internal class DefaultParkingLotFinder : ParkingLotFinder
     {
         protected override ParkingLot FindParkingLotCore(ParkingLot[] lots)
         {

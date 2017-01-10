@@ -2,7 +2,7 @@ using System.Linq;
 
 namespace OOBootcamp
 {
-    public class VacancyCountParkingLotFinder : ParkingLotFinder
+    internal class VacancyCountParkingLotFinder : ParkingLotFinder
     {
         protected override ParkingLot FindParkingLotCore(ParkingLot[] lots)
         {
